@@ -3,6 +3,7 @@ package zadaniaDomowe4;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Lambdy {
@@ -23,16 +24,26 @@ public class Lambdy {
         List<Integer> listaDlugosciImion = imiona.stream().map(String::length).collect(Collectors.toList());
         System.out.println(listaDlugosciImion);
 
-        List<String> listaOdwroconychImion = new ArrayList<>();
-        for (String l : imiona) {
-            String noweImie = "";
-            int dlugosc = l.length();
-            for (int x = dlugosc - 1; x >= 0; x--) {
-                noweImie = noweImie + l.charAt(x);
+        Function<String, String> odwr1 = (s) -> {
+            char[] chars = new char[s.length()];
+            int n = 0;
+            for (int i = s.length() - 1; i >= 0; i--) {
+                chars[n] = s.charAt(n++);
             }
-            listaOdwroconychImion.add(noweImie);
-        }
-        System.out.println(listaOdwroconychImion);
+            return new String(chars);
+        };
+        Function<String, String> odwr2 = (s) -> {
+            StringBuilder sb = new StringBuilder();
+            for (int i = s.length() - 1; i >= 0; i--) {
+                sb.append(s.charAt(i));
+            }
+            return sb.toString();
+        };
+        Function<String, String> odwr3 = (s) ->
+                new StringBuilder(s).reverse().toString();
+
+        Function<String, Boolean> waru1 = (s) -> s.startsWith("a");
+        Function<String, Boolean> waru2 = (s) -> s.endsWith("a") || s.endsWith("A");
 
     }
 
