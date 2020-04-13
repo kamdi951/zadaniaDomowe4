@@ -15,6 +15,9 @@ public class Lambdy {
         List<Character> listaPierwszychLiter = imiona.stream().map((imie) -> imie.charAt(0)).collect(Collectors.toList());
         System.out.println(listaPierwszychLiter);
 
+        List<Character> listaPierwszychLiter2 = imiona.stream().map((imie) -> imie.charAt(0)).collect(Collectors.toList());
+        System.out.println(listaPierwszychLiter2);
+
         List<String> listaWielkichImion = imiona.stream().map(String::toUpperCase).collect(Collectors.toList());
         System.out.println(listaWielkichImion);
 
